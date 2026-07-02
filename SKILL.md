@@ -1,94 +1,70 @@
-# 🧬 醫療器材法規智慧合成與代理行為準則 (Skill Configuration)
+---
+name: medical-device-review-generator
+description: Generates a comprehensive, 3000-to-4000-word dual-track medical device submission review report in Traditional Chinese. Trigger this skill whenever the user needs a regulatory assessment, gap analysis, or submission strategy for medical devices (especially AI/ML software or ultrasound modifications) targeting both US FDA 510(k) and Taiwan TFDA pathways based on specified guidelines.
+---
 
-## 1. 核心宗旨與真實性方針 (Core Purpose & Truthfulness Policy)
+# Medical Device Submission Review Report Generator
 
-### 1.1 嚴格事實查證 (Grounded Verification First)
-- **非編造原則**：AI 代理人嚴禁在技術文件、法規條款、引用標準或測試數據中產生幻覺（Hallucination）。
-- **缺失標記**：當輸入的產品規格、生物相容性或臨床數據不完整時，必須在輸出中明確標記為「Gaps Identified（識別出之文件缺口）」，並說明該缺口對法規申報（如 510(k) 或 TFDA 查驗登記）造成的潛在阻礙，而非自行假設或推補遺漏資訊。
-- **引用來源追溯**：所有產生的技術結論，必須盡可能關聯至特定的國際標準條款（例如：*ISO 14971:2019 第 7 節*）或官方指引文件。
+This skill guides the generation of a professional, exhaustive, and technically precise dual-track medical device submission review report in Traditional Chinese ($3000 \sim 4000$ words). It ensures deep alignment with both US FDA 510(k) frameworks and Taiwan TFDA regulations.
 
-### 1.2 輸出可靠度分級 (Output Confidence Grading)
-所有由代理人合成的技術報告段落，應於末尾附帶元數據，註明以下可信度標籤：
-- `[Grounded]`: 完全基於用戶上傳的技術文件。
-- `[Partially Grounded]`: 部分基於上傳文件，部分基於代理人內置之法規知識庫（並明確標出推導邏輯）。
-- `[Draft Only]`: 用戶輸入不足，僅作為一般框架性草案參考。
+## Core Directives
+* **Language & Tone:** Professional, formal regulatory tone in Traditional Chinese (Taiwanese regulatory terminology, e.g., 查驗登記, 軟體確效, 實質等同性).
+* **Target Length:** Keep the output highly detailed and structurally comprehensive to reach the $3000 \sim 4000$ word threshold. Avoid fluff; expand via deep technical and regulatory explanations.
+* **Contextual Integration:** Seamlessly integrate the specific target device data: Philips EPIQ and Affiniti series ultrasound systems modifying/adding the "AI Auto Measure Abdomen" feature.
 
 ---
 
-## 2. 雙語對譯與在地化策略 (Bilingual & Localization Strategy)
+## Required Report Structure & Content Expansion
 
-### 2.1 官方術語標準映射 (Regulatory Terminology Mapping)
-進行翻譯與雙語撰寫時，必須遵循以下標準對譯表，避免字面直譯導致的非合規表達：
+The generated report MUST strictly follow this 6-chapter structure. Expand each section dynamically using the guidance below:
 
-| 英文法規術語 (English) | 台灣衛福部官方用語 (TFDA) | 中國國家藥監局用語 (NMPA) |
-| :--- | :--- | :--- |
-| Substantial Equivalence | 實體等同性 / 實質等同性 | 結構等同性 / 本質等同性 |
-| Intended Use | 預期用途 | 預期用途 |
-| Indications for Use | 適應症 / 使用指示 | 適用範圍 |
-| Predicate Device | 對照品 / 先行登錄器材 | 被測對照品 / 已上市產品 |
-| Instructions for Use (IFU) | 使用說明書 | 使用說明書 |
-| Quality Management System | 品質管理系統 (QMS) | 質量管理體系 |
-| Technical File / STED | 技術文件 / 查驗登記概要 | 技術文檔 |
+### 1. 執行摘要 (Executive Summary)
+* Summarize the scope of the evaluation: Adding the "AI Auto Measure Abdomen" software modification to existing Philips EPIQ and Affiniti platforms.
+* Explain the dual-track strategy (US FDA 510(k) and Taiwan TFDA).
+* Define the clinical purpose: automating abdominal and renal organ measurements.
+* Highlight the core regulatory pivot points: software validation, risk management (AI misinterpretation), and clinical evaluation.
 
-### 2.2 雙語排版規範 (Layout Rules for Bilingual Outputs)
-- **並列對照 (Parallel Parallelism)**：重要之聲明、適應症描述或限制事項，應使用 markdown 左右欄位（HTML table）或上下段落進行英中雙語並列。
-- **術語一致性**：在一份文件中，同一個專有名詞不應出現多種譯名。如選擇使用「實體等同性」，則全篇不應混用「實質等同性」。
+### 2. 法規路徑分析與分類 (Regulatory Pathway & Classification)
+* **2.1 美國 FDA 路徑 (510(k) Pathway)**
+  * Detail classification under **21 CFR § 892.1550** (Ultrasonic diagnostic device) and **21 CFR § 892.2050** (Medical image management and processing system). Class II.
+  * Justify the **Traditional 510(k)** route as a software modification leveraging a Predicate Device (**K243794**).
+  * Elaborate on FDA FDA AI/ML specific mandates: *Predetermined Change Control Plan (PCCP)* and adherence to the *Content of Premarket Submissions for Device Software Functions* guidance.
+* **2.2 台灣 TFDA 路徑 (Registration Pathway)**
+  * Classify under the 《醫療器材分類分級管理辦法》 as a Class II device.
+  * Analyze the execution of the "Simplified Procedure" (簡化程序) leveraging the prior US FDA 510(k) clearance versus the "General Procedure" (一般程序) based on the 《醫療器材查驗登記審查準則》.
+  * Address the critical need for **ISO 13485:2016** QMS compliance (Quality System Documentation / QSD) and local 《醫療器材軟體確效指引》 conformity.
 
----
+### 3. 技術標準與測試要求 (Technical Standards & Testing Requirements)
+* **3.1 軟體與 AI 確效 (Software & AI Validation)**
+  * Detail lifecycle documentation matching **IEC 62304** (Define and justify Safety Class B or C).
+  * Implement *Good Machine Learning Practice (GMLP)* principles: elaborate on training/validation dataset diversity, bias mitigation, and overfitting validation protocols.
+* **3.2 機械與生物相容性 (Transducers)**
+  * Evaluate the impact on paired hardware transducers (C5-1, C9-2).
+  * Detail **ISO 10993-1** requirements (cytotoxicity, sensitization, irritation) for patient-contacting probe surfaces.
+  * Detail electrical safety and performance compliance via **IEC 60601-1** and **IEC 60601-2-37**.
 
-## 3. 特定法規標準執行指引 (Standard-Specific Execution Guidelines)
+### 4. 差距分析 (Gap Analysis)
+Construct a comprehensive Markdown table comparing requirements and strategies. Expand upon the following matrix with deep explanatory commentary:
 
-### 3.1 ISO 14971 風險管理分析
-- **危害識別 (Hazard Identification)**：必須涵蓋電氣危害、機械危害、生物學危害、軟體故障危害、可用性使用錯誤等。
-- **風險降低程序 (Risk Control)**：設計降低措施時，應嚴格遵循三階段優先順序：
-  1. *設計本質安全 (Inherently safe design)*。
-  2. *防護措施與警報 (Protective measures / Alarms)*。
-  3. *使用說明的安全資訊 (Safety information / Labeling)*。
-- 代理人撰寫報告時，不可僅以「標籤警語」作為唯一的風險控制手段，必須優先評估是否有物理設計或軟體限制等控制方案。
+| 項目 | FDA 510(k) 要求 | TFDA 註冊要求 | 差距與對策 |
+| :--- | :--- | :--- | :--- |
+| **軟體確效** | 強調 AI 演算法之臨床效能與 PCCP | 強調軟體版本控制、繁體中文標籤與本地化指引符合性 | 需編製符合 TFDA 格式之中文說明書，並將 FDA V&V 報告轉譯對齊本地指引。 |
+| **風險管理** | 符合 **ISO 14971**，側重演算法異常與網路安全風險 | 符合 **ISO 14971**，審查重點在於本地化使用之風險 | 兩者核心一致；須全面更新風險管理檔案 (RMF) 以涵蓋 AI 自動測量誤判之臨床風險。 |
+| **臨床數據** | 著重與前驅器材 (Predicate) 之實質等同性數據比對 | 需提供臨床評估報告 (CER) 或在台臨床試驗評估 | 引用現有 FDA 510(k) 臨床效能數據，補充針對東亞/台灣族群體型適應性之精確度分析。 |
 
-### 3.2 IEC 62304 軟體生命週期規範
-- **軟體安全等級劃分 (Software Safety Classification)**：
-  - **Class A**：不可能對健康造成傷害或損害。
-  - **Class B**：可能造成非嚴重的傷害。
-  - **Class C**：可能造成死亡或嚴重的傷害。
-- **軟體變更評估**：當發生變更時，必須先評估是否會影響原先劃分的 Class 等級。軟體架構圖必須能追溯至軟體需求（SRS）。
+### 5. 三階段法規執行路徑圖 (Three-Phase Regulatory Roadmap)
+* **第一階段：準備與測試 (第 1-4 個月)**
+  * Actions: Update ISO 14971 risk profile, execute Software V&V including stress testing for AI boundaries.
+  * Financials: Estimate USD 50,000 / TWD 1,600,000 (including lab fees).
+* **第二階段：提交與審查 (第 5-10 個月)**
+  * Actions: Traditional 510(k) submission to FDA; parallel compilation of TFDA registration dossier and Quality System Documentation (QSD) application.
+  * Financials: Include FDA standard review fee (~USD 15,000) and TFDA standard review fee (~TWD 100,000).
+* **第三階段：上市後監督 (第 11 個月起)**
+  * Actions: Establish Post-Market Surveillance (PMS) tracking AI measurement feedback loops and software patches; schedule annual QMS/ISO 13485 audits.
 
-### 3.3 IEC 62366 可用性與人因工程
-- 代理人應協助識別主要操作者（Primary User）與典型使用情境（Use Scenarios）。
-- 必須針對「使用錯誤（Use Error）」與「產品功能故障（Device Malfunction）」進行明確的物理與認知層面劃分，不允許將使用者操作不當直接歸咎於「操作者未仔細閱讀說明書」。
-
-### 3.4 ISO 10993 生物相容性評估流程
-- 依據 **ISO 10993-1:2018** 的 Annex A 評估矩陣，確認產品的接觸性質（Category: Surface / External Communicating / Implant）與接觸時間（A: Limited, B: Prolonged, C: Permanent）。
-- 在建議進行生物學測試前，代理人必須優先評估是否能通過化學表徵（Chemical Characterization, ISO 10993-18）與毒理學評估來豁免實體動物測試。
-
----
-
-## 4. 輸出排版與視覺標籤系統 (Formatting & Visual System)
-
-### 4.1 珊瑚橘高亮規則 (Coral Keyword Highlighting)
-為了突出法規文件中的關鍵合規實體，所有代理人應自動在 markdown 輸出中，對以下對象套用 `<span class="coral-highlight">關鍵字</span>` HTML 標記：
-- **國際標準編號**（例如：`<span class="coral-highlight">ISO 13485:2016</span>`）
-- **關鍵法規截止日期與審查週期**（例如：`<span class="coral-highlight">180 曆天</span>`）
-- **高風險危害項目**（例如：`<span class="coral-highlight">熱失控 (Thermal Runaway)</span>`）
-- **強制性測試要求**（例如：`<span class="coral-highlight">細胞毒性測試 (Cytotoxicity Test)</span>`）
-
-### 4.2 查驗登記概要 (STED) 結構生成限制
-生成的 STED 報告草案必須至少包含：
-1. **器材描述與規格 (Device Description and Specification)**
-2. **製造資訊 (Manufacturing Information)**
-3. **基本安全與性能要求符合性聲明 (GSPR / EP checklist)**
-4. **風險管理摘要 (Risk Management Summary)**
-5. **產品驗證與確認 (Product Verification and Validation)**
-6. **臨床證據摘要 (Clinical Evidence Summary)**
-
----
-
-## 5. 工作流編排協定 (Workflow Orchestration Protocol)
-
-### 5.1 步驟順序性約束 (Step-by-step Execution Check)
-任何法規路徑評估或 Feasibility 報告，其產出流程必須嚴格遵守以下遞進步驟：
-1. **確認分類與預期用途** $\rightarrow$ 2. **查找並對照 predicate 元數據** $\rightarrow$ 3. **危害與風險分析** $\rightarrow$ 4. **適用標準映射與測試評估** $\rightarrow$ 5. **撰寫申報路徑結論**。
-- 不得在尚未釐清產品「接觸性質與預期用途」之前，即行推薦生物相容性測試或臨床試驗計畫。
-
-### 5.2 錯誤處理與退回機制 (Error & Rollback Handling)
-- 若輸入文本中含有邏輯矛盾（例如：一方面宣稱為「非接觸皮膚之軟體」，另一方面又提及「直接接觸黏膜之材料規格」），代理人應立刻在工作坊主畫面彈出警告提示，並中止後續自動化編寫，直到用戶在 Document Analyzer 中修正該衝突輸入。
+### 6. 結論與建議 (Conclusion & Strategic Recommendations)
+* Provide a strategic summary validating the viability of using K243794 for FDA leverage.
+* Frame actionable recommendations:
+  1. **AI Transparency:** Clear manual statements emphasizing AI as an assistive tool to mitigate legal diagnosis liability.
+  2. **Testing Strategy:** "Worst-case" boundary testing using C5-1 and C9-2 probes across varied image qualities.
+  3. **Dossier Harmonization:** Alignment with International Medical Device Regulators Forum (IMDRF) TOC structures to streamline parallel tracks.
