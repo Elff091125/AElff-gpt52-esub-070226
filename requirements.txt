@@ -1,18 +1,33 @@
-streamlit
-openai
-anthropic
-pyyaml
-pandas
-numpy
-pypdf
-PyYAML
-altair
-httpx
-python-docx
-PyPDF2
-tabulate
-plotly
-streamlit-agraph
-pyyaml
-openai
-google-genai>=2.4.0
+# ==============================================================================
+# Medical Device Regulatory Intelligence Workspace (Version: 3.1.0)
+# Core Requirements & Dependencies
+# ==============================================================================
+
+# Core Application Framework
+streamlit>=1.35.0
+pyyaml>=6.0.1
+pydantic>=2.7.0
+
+# Data Analysis & High-End WOW Visualizations
+pandas>=2.2.0
+numpy>=1.26.0
+plotly>=5.20.0
+
+# LLM Providers & SDKs (Dual Track)
+google-genai>=0.1.0
+google-generativeai>=0.5.0
+openai>=1.30.0
+
+# Document & PDF Processing (Optional but Highly Recommended)
+pdfplumber>=0.11.0
+pypdf>=4.2.0
+
+# OCR Engines & Image Handling (Optional for Notes Transformer)
+Pillow>=10.3.0
+pytesseract>=0.3.10
+# easyocr>=1.7.1      # Uncomment if GPU/Torch environment is available
+# paddleocr>=2.7.3    # Uncomment if local PaddlePaddle ecosystem is needed
+
+# Utilities & Compatibility
+requests>=2.31.0
+python-dateutil>=2.9.0
